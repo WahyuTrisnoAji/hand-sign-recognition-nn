@@ -1,4 +1,4 @@
-# Hand Sign Recognition — JST Backpropagation
+# Hand Sign Recognition (JST Backpropagation)
 
 Sistem pengenalan gesture tangan (angka 0–9) yang dibangun menggunakan **Jaringan Syaraf Tiruan (JST) Backpropagation murni dari scratch**, tanpa framework deep learning seperti TensorFlow atau PyTorch. Seluruh logika forward propagation, fungsi loss, backpropagation, dan update bobot diimplementasikan secara eksplisit menggunakan NumPy.
 
@@ -29,7 +29,7 @@ Beberapa kelas yang awalnya sulit dibedakan oleh model:
 
 ## Nilai Bisnis dan Potensi Implementasi
 
-Proyek ini bukan hanya demonstrasi teknis — ada nilai nyata yang bisa diterapkan di berbagai konteks:
+Proyek ini bukan hanya demonstrasi teknis, tapi ada nilai nyata yang bisa diterapkan di berbagai konteks:
 
 **1. Aksesibilitas dan Komunikasi Inklusif**
 Sistem pengenalan gesture tangan menjadi fondasi alat bantu komunikasi bagi individu dengan keterbatasan pendengaran atau bicara. Kemampuan mengenali angka secara real-time membuka peluang pengembangan interpreter bahasa isyarat yang lebih lengkap.
@@ -44,13 +44,13 @@ Aplikasi interaktif berbasis gesture dapat digunakan sebagai media pembelajaran 
 Proyek ini membuktikan bahwa model neural network ringan (88 ribu parameter) yang dibangun dari scratch mampu memberikan akurasi tinggi (>93%) pada device CPU biasa tanpa GPU, membuka kemungkinan deployment di perangkat edge seperti Raspberry Pi atau mikrokontroler dengan memori terbatas.
 
 **5. Demonstrasi Kompetensi Teknis**
-Dari perspektif pengembangan karir, proyek ini menunjukkan kemampuan memahami dan mengimplementasikan algoritma machine learning dari level matematika (backpropagation, gradient descent, regularization) — bukan sekadar menggunakan library.
+Dari perspektif pengembangan karir, proyek ini menunjukkan kemampuan memahami dan mengimplementasikan algoritma machine learning dari level matematika (backpropagation, gradient descent, regularization) bukan sekadar menggunakan library.
 
 ---
 
 ## Gambaran Umum
 
-Proyek ini bertujuan membuktikan bahwa klasifikasi gesture tangan secara real-time dapat dicapai dengan jaringan saraf yang dibangun dari dasar — tanpa abstraksi framework — menggunakan fitur geometri tangan sebagai representasi input yang kuat.
+Proyek ini bertujuan membuktikan bahwa klasifikasi gesture tangan secara real-time dapat dicapai dengan jaringan saraf yang dibangun dari dasar, tanpa abstraksi framework dengan menggunakan fitur geometri tangan sebagai representasi input yang kuat.
 
 **Pipeline sistem:**
 
@@ -96,7 +96,7 @@ MediaPipe mendeteksi 21 titik landmark tangan. Dari titik-titik tersebut, dituru
 | Status biner jari ke atas | 5 | 1 jika ujung jari lebih tinggi dari pangkal MCP |
 | Jarak antar ujung jari | 4 | Jarak ujung jari yang berdekatan secara berurutan |
 
-**Normalisasi landmark:** translasi ke pergelangan tangan sebagai origin, diikuti skalasi berdasarkan jarak pergelangan ke jari tengah MCP — menghasilkan representasi yang invariant terhadap posisi dan jarak kamera.
+**Normalisasi landmark:** translasi ke pergelangan tangan sebagai origin, diikuti skalasi berdasarkan jarak pergelangan ke jari tengah MCPyang menghasilkan representasi yang invariant terhadap posisi dan jarak kamera.
 
 ---
 

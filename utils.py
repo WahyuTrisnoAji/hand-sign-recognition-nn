@@ -38,9 +38,7 @@ except ImportError:
 import config
 
 
-# ======================================================================
 # Wrapper Hasil Deteksi MediaPipe
-# ======================================================================
 
 class _DetectionResult:
     """Menyatukan format hasil deteksi dari versi lama dan baru MediaPipe."""
@@ -63,9 +61,7 @@ class _LandmarkList:
         self.landmark = [_LandmarkPoint(lm.x, lm.y, lm.z) for lm in landmark_list]
 
 
-# ======================================================================
 # Hand Detector (Kompatibel Dua Versi MediaPipe)
-# ======================================================================
 
 class HandDetector:
     """
@@ -216,9 +212,7 @@ class HandDetector:
             self._landmarker.close()
 
 
-# ======================================================================
 # Ekstraksi dan Normalisasi Fitur Landmark
-# ======================================================================
 
 def _angle_between(v1, v2):
     """
@@ -345,9 +339,7 @@ def extract_landmarks_from_image(image_path):
     return None, annotated
 
 
-# ======================================================================
 # Operasi Dataset (CSV)
-# ======================================================================
 
 def save_landmark_to_csv(landmarks, label, csv_path=None):
     """
@@ -458,9 +450,7 @@ def load_dataset(csv_path=None):
     return X, y
 
 
-# ======================================================================
 # One-Hot Encoding dan Split Dataset
-# ======================================================================
 
 def one_hot_encode(y, num_classes=None):
     """Mengubah label integer menjadi representasi one-hot encoding."""
@@ -512,9 +502,7 @@ def split_dataset(X, y, test_ratio=0.2, val_ratio=0.1, seed=42):
             X[test_idx],  y[test_idx])
 
 
-# ======================================================================
-# Normalisasi Data (Standard Scaler Manual)
-# ======================================================================
+# Normalisasi Data (Standard Scaler Manual
 
 class ManualScaler:
     """
@@ -559,9 +547,7 @@ class ManualScaler:
         return self
 
 
-# ======================================================================
 # Text-to-Speech Engine
-# ======================================================================
 
 class VoiceEngine:
     """
@@ -660,9 +646,7 @@ class VoiceEngine:
         self.speak(f"Angka {text_map.get(number, str(number))}")
 
 
-# ======================================================================
 # Statistik Dataset
-# ======================================================================
 
 def get_dataset_stats(csv_path=None):
     """
