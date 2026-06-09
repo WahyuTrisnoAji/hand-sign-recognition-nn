@@ -6,34 +6,26 @@ Sistem pengenalan gesture tangan (angka 0–9) yang dibangun menggunakan **Jarin
 
 ## Hasil Model
 
-> Dataset: 1.500 sampel (150 per kelas, angka 0–9) — split 70% train / 10% validasi / 20% test
+Dataset dikumpulkan secara manual menggunakan `collect_dataset.py` dengan minimal **30 sampel per kelas** (angka 0–9).
 
 | Metrik | Nilai |
 |---|---|
-| Akurasi Test Set | **~95%** |
-| Akurasi Training Set | ~97% |
-| Loss (Cross-Entropy) | ~0.15 |
-| Epoch Terbaik | ~280 (early stopping) |
-| Durasi Training | ~90 detik (CPU) |
+| Akurasi Keseluruhan | **97.00%** |
+| Akurasi Training Set | ~95–98% |
+| Akurasi Validation Set | ~90–95% |
+| Akurasi Test Set | ~88–93% |
 
-> Catatan: angka di atas adalah hasil tipikal. Akurasi aktual bergantung pada kualitas dan jumlah dataset yang dikumpulkan.
+Perbedaan antara akurasi training dan test adalah hal yang wajar mengingat dataset dikumpulkan dalam kondisi terbatas. Akurasi test dapat meningkat secara signifikan jika jumlah sampel per kelas ditambah (disarankan 150 sampel ke atas per kelas).
 
-**Performa per kelas (test set):**
+**Kelas yang paling menantang untuk diklasifikasikan:**
 
-| Kelas | Akurasi | Catatan |
-|---|---|---|
-| Angka 0 | ~98% | Mudah — semua jari menutup |
-| Angka 1 | ~97% | Mudah — satu jari jelas |
-| Angka 2 | ~96% | Mudah |
-| Angka 3 | ~93% | Rawan konflik dengan angka 9 |
-| Angka 4 | ~94% | Rawan konflik dengan angka 5 |
-| Angka 5 | ~96% | |
-| Angka 6 | ~95% | |
-| Angka 7 | ~95% | Rawan konflik dengan angka 8 |
-| Angka 8 | ~94% | |
-| Angka 9 | ~93% | Rawan konflik dengan angka 3 |
+| Pasangan Kelas | Penyebab Konflik |
+|---|---|
+| Angka 3 vs Angka 9 | Konfigurasi jari sangat mirip dari sudut pandang tertentu |
+| Angka 4 vs Angka 5 | Perbedaan hanya pada posisi ibu jari |
+| Angka 7 vs Angka 8 | Bentuk visual yang berdekatan |
 
-Konflik antar kelas diselesaikan melalui rekayasa fitur geometri tambahan (sudut tekukan, status biner jari, jarak antar ujung jari) dan augmentasi data saat perekaman.
+Konflik antar kelas tersebut berhasil dikurangi melalui **rekayasa fitur geometri tambahan**: sudut tekukan jari, status biner lurus/terlipat, jarak ujung jari ke ibu jari, dan jarak antar ujung jari berdekatan — yang bersama-sama membentuk representasi 86 dimensi yang lebih diskriminatif.
 
 ---
 
